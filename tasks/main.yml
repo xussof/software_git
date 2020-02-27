@@ -1,22 +1,28 @@
 ---
-- name: Installing git packages using apt
-  become: true
-  apt:
-    pkg: "git"
-    update_cache: yes
-    state: latest
-  when: ansible_distribution == 'Ubuntu'
+#- name: Installing git packages using apt
+#  become: true
+#  apt:
+#    pkg: "git"
+#    update_cache: yes
+#    state: latest
+#  when: ansible_distribution == 'Ubuntu'
 
-- name: Installing git packages using yum
-  become: true
-  yum:
-    pkg: "git"
-    update_cache: yes
-    state: latest
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+#- name: Installing git packages using yum
+#  become: true
+#  yum:
+#    pkg: "git"
+#    update_cache: yes
+#    state: latest
+#  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
-- name: Installing git packages using pacman
-  pacman:
+#- name: Installing git packages using pacman
+#  pacman:
+#    name: "git"
+#    state: present
+#  when: ansible_distribution == 'MacOSX'
+
+- name: Installing git packages
+  become: true
+  package:
     name: "git"
     state: present
-  when: ansible_distribution == 'MacOSX'
